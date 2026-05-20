@@ -8,15 +8,16 @@
     <main class="container">
         <h1>Cadastro</h1>
         <form id="formCadastro">
+            
             <label for="newusuario">Nome de usuário</label>
-            <input type="text" id="newusuario" required>
+            <input type="text" pattern="[a-zA-Z\s!-@]+" id="newusuario" required>
         <h2>
             <label for="senha">Senha</label>
-            <input type="text" id="senha" required>
+            <input type="text" pattern="[a-zA-Z\s!-@]+" id="senha" required>
         </h2>
         <h3>
             <label for="confsenha">Confirmar senha</label>
-            <input type="text" id="confsenha" required>
+            <input type="text" pattern="[a-zA-Z\s!-@]+" id="confsenha" required>
         </h3>
             <button type="submit">Cadastrar</button>
         <h4>

@@ -9,19 +9,16 @@
     <main class="container">
         <h1>Login</h1>
         <form id="formLogin">
-            <h2>
-                <label for="usuario">Nome de usuário</label>
-                <input type="text" id="usuario" required>
-            </h2>
-        <h3>
+            <label for="usuario">Nome de usuário</label>
+            <input type="text" pattern="[a-zA-Z\s!-@]+" id="usuario" required>
+        <h2>
             <label for="senha">Senha</label>
-            <input type="text" id="senha" required>
-        </h3>
+            <input type="text" pattern="[a-zA-Z\s!-@]+" id="senha" required>
+        </h2>
             <button type="submit">Entrar</button>
-
-        <h4>
+        <h3>
             <label>Não possui login?</label>
             <a href="Cadastro.html">Cadastrar</a>
-        </h4>
+        </h3>
         </form>
 </body>
