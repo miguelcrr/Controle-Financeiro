@@ -13,7 +13,9 @@
             <input type="text" placeholder="Usuário" pattern="[a-zA-Z\s!-@]+" id="usuario" required>
         </h2>
         <h3>
-            <input type="text" placeholder="Senha" pattern="[a-zA-Z\s!-@]+" id="senha" required>
+        <div class = "partesenha">
+            <input type="password" placeholder="Senha" pattern="[a-zA-Z\s!-@]+" id="senha" required> <button type="button" onclick="mostrarsenha()"></button>
+        </div>
         </h3>
             <button type="submit">Entrar</button>
         <h4>
@@ -21,4 +23,9 @@
             <a href="Cadastro.html">Cadastrar</a>
         </h4>
         </form>
+        </main>
+
+
+        <script src="script.js"></script>
 </body>
+</html>

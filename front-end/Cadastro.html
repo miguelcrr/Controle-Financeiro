@@ -5,23 +5,31 @@
     <title>Cadastrar</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
     <main class="container">
         <h1>Cadastro</h1>
         <form id="formCadastro">
-            
-            <label for="newusuario">Nome de usuário</label>
-            <input type="text" pattern="[a-zA-Z\s!-@]+" id="newusuario" required>
         <h2>
-            <label for="senha">Senha</label>
-            <input type="text" pattern="[a-zA-Z\s!-@]+" id="senha" required>
+            <input type="text" placeholder="Usuário" pattern="[a-zA-Z\s!-@]+" id="usuario" required>
         </h2>
+        <div class="partesenha">
         <h3>
-            <label for="confsenha">Confirmar senha</label>
-            <input type="text" pattern="[a-zA-Z\s!-@]+" id="confsenha" required>
+            <input type="password" placeholder="Senha" pattern="[a-zA-Z\s!-@]+" id="senha" required> <button type="button" onclick="mostrarsenha()"></button>
         </h3>
-            <button type="submit">Cadastrar</button>
         <h4>
+            <input type="password" placeholder="Confirmar senha" pattern="[a-zA-Z\s!-@]+" id="confsenha" required> <button type="button" onclick="mostrarconfsenha()"></button>
+        </h4>
+        </div>
+            <button type="submit">Cadastrar</button>
+        <h5>
             <label>Já possui uma conta?</label>
             <a href="Login.html">Entrar</a>
-        </h4>
+        </h5>
         </form>
+        </main>
+
+
+        <script src="script.js"></script>
+        
+</body>
+</html>
