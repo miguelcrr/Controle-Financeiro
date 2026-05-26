@@ -62,3 +62,9 @@ button{
 input {
     border-radius: 8px;
 }
+
+img {
+  width: 100%; /* Adapta ao tamanho da tela */
+  max-width: 400px; /* Limita o tamanho máximo */
+  height: auto; /* Mantém a proporção original */
+}
