@@ -61,10 +61,19 @@ button{
 
 input {
     border-radius: 8px;
+    padding: 0.3%;
 }
 
-img {
-  width: 100%; /* Adapta ao tamanho da tela */
-  max-width: 400px; /* Limita o tamanho máximo */
-  height: auto; /* Mantém a proporção original */
+.topo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 100%; 
+    max-width: 400px; 
+    height: auto; 
+    position: relative;
+    top:-300px;
 }
