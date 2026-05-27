@@ -70,7 +70,8 @@ input {
     height: auto; 
     position: relative;
     top:-400px;
-    transform: scaleX(-1)
+    transform: scaleX(-1);
+    pointer-events: none;
 }
 
 .direita{
@@ -80,13 +81,15 @@ input {
     position: relative;
     top:-400px;
     right: -470px;
+    pointer-events: none;
 }
 
 .logo{
     width: 100%; 
     max-width: 500px; 
-    height: auto; 
+    height: 500px; 
     position: relative;
     top:-650px;
     right: -470px;
+    pointer-events: none;
 }
