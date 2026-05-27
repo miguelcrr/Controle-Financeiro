@@ -61,18 +61,23 @@ button{
 
 input {
     border-radius: 8px;
+    padding: 0.3%;    
 }
 
-.topo{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo{
+.esquerda{
     width: 100%; 
-    max-width: 400px; 
+    max-width: 500px; 
     height: auto; 
     position: relative;
-    top:-300px;
+    top:-400px;
+    transform: scaleX(-1)
+}
+
+.direita{
+    width: 100%; 
+    max-width: 500px; 
+    height: auto; 
+    position: relative;
+    top:-400px;
+    right: -470px;
 }
