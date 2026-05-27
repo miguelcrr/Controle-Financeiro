@@ -81,3 +81,12 @@ input {
     top:-400px;
     right: -470px;
 }
+
+.logo{
+    width: 100%; 
+    max-width: 500px; 
+    height: auto; 
+    position: relative;
+    top:-650px;
+    right: -470px;
+}
