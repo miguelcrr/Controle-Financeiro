@@ -77,7 +77,8 @@ input {
 .direita{
     width: 100%; 
     max-width: 500px; 
-    height: auto; 
+    height: auto;
+
     position: relative;
     top:-400px;
     right: -470px;
@@ -92,4 +93,24 @@ input {
     top:-650px;
     right: -470px;
     pointer-events: none;
+}
+
+
+.container-pai {
+    display: flex;
+    justify-content: space-between; 
+    gap: 15px; 
+    width: 100%;
+}
+
+
+.caixa {
+    text-align: center;
+    padding: 20px;
+    width: 30%;
+}
+
+.imagem {
+    width: 100%;
+
 }
