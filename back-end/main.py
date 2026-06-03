@@ -22,6 +22,4 @@ def conectar():
     )
 class UserSenha(BaseModel):
     usuario: str
-    newusuario: str
     senha: str
-    confsenha: str

@@ -9,25 +9,23 @@
     <main class="container">
         <h1>Cadastro</h1>
         <form id="formCadastro">
-        <h2>
-            <input type="text" placeholder="Usuário" pattern="[a-zA-Z\s!-@]+" id="usuario" required>
-        </h2>
-        <div class="partesenha">
-        <h3>
-            <input type="password" placeholder="Senha" pattern="[a-zA-Z\s!-@]+" id="senha" required> <button type="button" onclick="mostrarsenha()"></button>
-        </h3>
-        <h4>
-            <input type="password" placeholder="Confirmar senha" pattern="[a-zA-Z\s!-@]+" id="confsenha" required> <button type="button" onclick="mostrarconfsenha()"></button>
-        </h4>
-        </div>
-            <button type="submit">Cadastrar</button>
-        <h5>
-            <label>Já possui uma conta?</label>
-            <a href="Login.html">Entrar</a>
-        </h5>
-            <img src="../imagens/porquinho.png" class="esquerda">
-            <img src="../imagens/porquinho.png" class="direita">
-            <img src="../imagens/logo.png" class="logo">
+            <h2>
+                <input type="text" placeholder="Usuário" pattern="[a-zA-Z\s!-@]+" id="usuario" required>
+            </h2>
+            <div class="partesenha">
+            <h3>
+                <input type="password" placeholder="Senha" pattern="[a-zA-Z\s!-@]+" id="senha" required> <button type="button" onclick="mostrarsenha()"></button>
+            </h3>
+            <h4>
+                <input type="password" placeholder="Confirmar senha" pattern="[a-zA-Z\s!-@]+" id="confsenha" required> <button type="button" onclick="mostrarconfsenha()"></button>
+            </h4>
+            </div>
+                <button type="submit">Cadastrar</button>
+                <p id="errosenha"></p>
+            <h5>
+                <label>Já possui uma conta?</label>
+                <a href="Login.html">Entrar</a>
+            </h5>
         </form>
         </main>
 
