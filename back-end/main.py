@@ -17,7 +17,7 @@ def conectar():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="joao0708",
+        password="suasenha",
         database="porquinho"
     )
 class UserSenha(BaseModel):
