@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from jose import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import mysql.connector
 
 app = FastAPI()
@@ -29,7 +29,7 @@ def conectar():
 def criar_token(usuario):
     payload = {
         "sub": usuario,
-        "exp": datetime.utcnow() + timedelta(hours=1)
+        "exp": datetime.now(timezone.utc) + timedelta(hours=1)
     }
 
     return jwt.encode(
