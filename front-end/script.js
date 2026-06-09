@@ -1,3 +1,8 @@
+const token = localStorage.getItem("token");
+if (!token) {
+    window.location.href = "Login.html";
+}
+
 const API_URL = "http://127.0.0.1:8000";
 
 function mostrarsenha(){
@@ -82,8 +87,9 @@ if (formLogin) {
         const dados = await resposta.json();
         console.log(dados);
         if (dados.sucesso) {
+            localStorage.setItem("token", dados.token);
             window.location.href = "index.html";
-        }
+}
         else {
             erro.textContent = "Usuário ou senha incorretos";
             senha.value = "";
@@ -91,3 +97,4 @@ if (formLogin) {
         }
     })
 };  
+console.log(token)
