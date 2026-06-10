@@ -64,11 +64,9 @@ body {
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    
     background: transparent;
     border: none;
     cursor: pointer;
-    
     font-size: 18px;
 }
 
@@ -106,4 +104,17 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.area-login {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-direction: row;
+    margin-left: -10px;
+}
+
+.logo {
+    width: 600px;
+    margin-left: 50px;
 }

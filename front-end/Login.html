@@ -6,27 +6,29 @@
   <link rel="stylesheet" href="style.css">
 </head>
     <body>
-        <main class="container">
-            <h1>Login</h1>
-            <form id="formLogin">  
-            <div class="campo">
-                <input type="text" placeholder="Usuário" pattern="[a-zA-Z\s!-@]+" id="usuario" required>
-            </div>
-            <div class = "campo-senha">
-                <input type="password" placeholder="Senha" pattern="[a-zA-Z\s!-@]+" id="senha" required> <button type="button" onclick="mostrarsenha()">👁</button>
-            </div>
-                <button type="submit">Entrar</button>
-                <p id="errologin"></p>
-            <p>
-                <label>Não possui login?</label>
-                <a href="Cadastro.html">Cadastrar</a>
-            </p>
-                    
-                    
-                    
-            </form>
-        </main>
-    
+        <div class="area-login">
+            <main class="container">
+                <h1>Login</h1>
+                <form id="formLogin">  
+                <div class="campo">
+                    <input type="text" placeholder="Usuário" pattern="[a-zA-Z\s!-@]+" id="usuario" required>
+                </div>
+                <div class = "campo-senha">
+                    <input type="password" placeholder="Senha" pattern="[a-zA-Z\s!-@]+" id="senha" required> <button type="button" onclick="mostrarsenha()">👁</button>
+                </div>
+                    <button type="submit">Entrar</button>
+                    <p id="errologin"></p>
+                <p>
+                    <label>Não possui login?</label>
+                    <a href="Cadastro.html">Cadastrar</a>
+                </p>
+                        
+                        
+                        
+                </form>
+            </main>
+            <img src="../Imagens/logo.png" class="logo">
+        </div>
 
 
         <script src="script.js"></script>
