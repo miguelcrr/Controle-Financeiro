@@ -3,13 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Porquinho+</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylehome.css">
 </head>
 <body>
-    
+    <h1>LOGO PORQUINHO+</h1>
+    <div class="saldoseparação">
+    <span>Saldo Atual:</span>
+    <span id="saldo">R$ 0,00</span>
+    </div>
+    <h4>Ganhos/Gastos</h4>
+    <div id="listaganhogasto"></div>
+    <div class="perfil">
+        <button id="botaoperfil">👤</button>
+    </div>
+<!--ganhos/gastos-->
+    <button type="button" onclick = "ganhos()" id="botaoganhos">Ganhos</button>
+    <dialog id="janelaGanhos">
+    <div class = "boxganhos">
+        <input id="ganho" type="text" placeholder="Ganho"><br>
+        <input id="descricaoG" type="text" placeholder="Descrição" pattern="[a-zA-Z\s!-@]+"><br>
+        <button id="ganhosADC" onclick="ganhosADC()" type="button">Adicionar</button>
+    </div>
+    <button onclick= "xganhos()">Fechar</button>
+    </dialog>
+    <button type="button" onclick = "gastos()">Gastos</button>   
+    <dialog id="janelaGastos">
+    <div class = "boxperdas">
+        <input id="gasto" type="text" placeholder="Gasto"><br>
+        <input id="descricaoP" type="text" placeholder="Descrição" pattern="[a-zA-Z\s!-@]+"><br>
+        <button id="gastosADC" onclick="gastosADC()" type="button">Adicionar</button>
+    </div>
+    <button onclick= "xgastos()">Fechar</button>
+    </dialog>
+<!--ganhos/gastos-->
 
 
 
-
-
+    <script src="scripthome.js"></script>
 </body>
+</html>

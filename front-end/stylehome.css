@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Perfil */
+
+.perfil{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    font-size: 40px;
+    cursor: pointer;
+
+    background: white;
+    border-radius: 50%;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+h1{
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    font-size: 42px;
+}
+
+/* Saldo */
+
+.saldo-container{
+    font-size: 28px;
+    font-weight: bold;
+
+    margin-bottom: 30px;
+}
+
+#saldo{
+    color: green;
+}
+
+/* Título movimentações */
+
+h4{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Botões principais */
+
+#botaoganhos,
+button[onclick="gastos()"]{
+
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    margin: 10px;
+}
+
+#botaoganhos{
+    background: #4CAF50;
+    color: white;
+}
+
+button[onclick="gastos()"]{
+    background: #e53935;
+    color: white;
+}
+
+/* Lista */
+
+#listaganhogasto{
+    width: 100%;
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Caixinhas */
+
+.movimentacao{
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 15px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+
+/* Ganhos */
+
+.ganho{
+    border-left: 6px solid #4CAF50;
+}
+
+/* Gastos */
+
+.gasto{
+    border-left: 6px solid #e53935;
+}
+
+/* Área dos ícones */
+
+.acoes{
+    display: flex;
+}
+
+
+
+dialog{
+    margin: auto;
+
+    border: none;
+    border-radius: 15px;
+
+    padding: 20px;
+
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
+}
+
+dialog input{
+    width: 250px;
+
+    padding: 10px;
+
+    margin: 8px 0;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+dialog button{
+    margin-top: 10px;
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.acoes{
+    display: flex;
+    gap: 10px;
+}
+
+#botaoperfil{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+#editar,
+#deletar{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#editar:hover,
+#deletar:hover,
+#botaoperfil:hover{
+    transform: scale(1.15);
+}
