@@ -1,7 +1,18 @@
 const token = localStorage.getItem("token");
+
 if (!token) {
     window.location.href = "Login.html";
 }
+
+fetch(`http://127.0.0.1:8000/validar?token=${token}`)
+    .then(res => res.json())
+    .then(dados => {
+        if (!dados.valido) {
+            localStorage.removeItem("token");
+            window.location.href = "Login.html";
+        }
+    });
+
 let saldo = 0;
 function ganhos() {
     const janelaGanhos = document.getElementById('janelaGanhos').showModal()

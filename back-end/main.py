@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from jose import jwt
+from jose import jwt, JWTError, ExpiredSignatureError
 from datetime import datetime, timedelta, timezone
 import mysql.connector
 
@@ -22,7 +22,7 @@ def conectar():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="joao0708",
+        password="senha",
         database="porquinho"
     )
 
@@ -38,6 +38,22 @@ def criar_token(usuario):
         algorithm=ALGORITHM
     )
 
+def verificar_token(token):
+    try:
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+
+        return payload
+
+    except ExpiredSignatureError:
+        return None
+
+    except JWTError:
+        return None
+    
 class UserSenha(BaseModel):
     usuario: str
     senha: str
@@ -103,3 +119,20 @@ def login(user: UserSenha):
         "sucesso": False,
         "mensagem": "Usuário ou senha inválidos"
     }
+
+@app.get("/validar")
+def validar(token: str):
+    try:
+        jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+
+        return {"valido": True}
+
+    except ExpiredSignatureError:
+        return {"valido": False}
+
+    except JWTError:
+        return {"valido": False}
