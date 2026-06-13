@@ -20,23 +20,42 @@
     <button type="button" onclick = "ganhos()" id="botaoganhos">Ganhos</button>
     <dialog id="janelaGanhos">
     <div class = "boxganhos">
-        <input id="ganho" type="text" placeholder="Ganho"><br>
+        <h5>Ganho</h5>
+        <input id="ganho"required type="text" placeholder="Ganho"><br>
         <input id="descricaoG" type="text" placeholder="Descrição" pattern="[a-zA-Z\s!-@]+"><br>
+        <p id="erro"></p>
         <button id="ganhosADC" onclick="ganhosADC()" type="button">Adicionar</button>
+        <button onclick= "xganhos()">Fechar</button>
     </div>
-    <button onclick= "xganhos()">Fechar</button>
     </dialog>
     <button type="button" onclick = "gastos()">Gastos</button>   
     <dialog id="janelaGastos">
+    <h6>Gasto</h6>
     <div class = "boxperdas">
         <input id="gasto" type="text" placeholder="Gasto"><br>
         <input id="descricaoP" type="text" placeholder="Descrição" pattern="[a-zA-Z\s!-@]+"><br>
+        <p id="erro2"></p>
         <button id="gastosADC" onclick="gastosADC()" type="button">Adicionar</button>
+        <button onclick= "xgastos()">Fechar</button>
     </div>
-    <button onclick= "xgastos()">Fechar</button>
     </dialog>
 <!--ganhos/gastos-->
-
+    <dialog id="janelaedicaoganho">
+        <h7>Ganho</h7><br>
+        <input id="ganhoeditar" type="text" placeholder="Ganho"><br>
+        <input id="descricaoeditarG" type="text" placeholder="Descrição"><br>
+        <p id="erro3"></p>
+        <button onclick="salvaredicaoG()" type="button">Salvar</button>
+        <button onclick= "xedicaoganho()">Cancelar</button>
+    </dialog>
+    <dialog id="janelaedicaogastos">
+        <h8>Gasto</h8><br>
+        <input id="gastoeditar" type="text" placeholder="Gasto"><br>
+        <input id="descricaoeditarP" type="text" placeholder="Descrição"><br>
+        <p id="erro4"></p>
+        <button onclick="salvaredicaoP()" type="button">Salvar</button>
+        <button onclick= "xedicaogasto()">Cancelar</button>
+    </dialog>
 
 
     <script src="scripthome.js"></script>
