@@ -54,9 +54,30 @@ def verificar_token(token):
     except JWTError:
         return None
     
+def obter_usuario(token):
+    payload = verificar_token(token)
+
+    if not payload:
+        return None
+
+    return payload["sub"]
+    
 class UserSenha(BaseModel):
     usuario: str
     senha: str
+
+class AlterarSenha(BaseModel):
+    senha_atual: str
+    senha_nova: str
+
+class Movimentacao(BaseModel):
+    descricao: str
+    valor: float
+    tipo: str
+
+class AlterarUsuario(BaseModel):
+    usuario_novo: str
+    senha_atual: str
 
 @app.post("/cadastro")
 def cadastro(user: UserSenha):
@@ -136,3 +157,231 @@ def validar(token: str):
 
     except JWTError:
         return {"valido": False}
+    
+@app.post("/alterar-usuario")
+def alterar_usuario(token: str, dados: AlterarUsuario):
+
+    usuario = obter_usuario(token)
+
+    if not usuario:
+        return {
+            "sucesso": False,
+            "mensagem": "Token inválido"
+        }
+
+    conexao = conectar()
+    cursor = conexao.cursor(dictionary=True)
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM usuarios
+        WHERE usuario=%s AND senha=%s
+        """,
+        (usuario, dados.senha_atual)
+    )
+
+    resultado = cursor.fetchone()
+
+    if not resultado:
+        cursor.close()
+        conexao.close()
+
+        return {
+            "sucesso": False,
+            "mensagem": "Senha atual incorreta"
+        }
+
+    cursor.execute(
+        """
+        UPDATE usuarios
+        SET usuario=%s
+        WHERE usuario=%s
+        """,
+        (dados.usuario_novo, usuario)
+    )
+
+    cursor.execute(
+        """
+        UPDATE movimentacoes
+        SET usuario=%s
+        WHERE usuario=%s
+        """,
+        (dados.usuario_novo, usuario)
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return {
+        "sucesso": True
+    }
+    
+@app.post("/alterar-senha")
+def alterar_senha(token: str, dados: AlterarSenha):
+
+    usuario = obter_usuario(token)
+
+    if not usuario:
+        return {
+            "sucesso": False,
+            "mensagem": "Token inválido"
+        }
+
+    conexao = conectar()
+    cursor = conexao.cursor(dictionary=True)
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM usuarios
+        WHERE usuario=%s AND senha=%s
+        """,
+        (usuario, dados.senha_atual)
+    )
+
+    resultado = cursor.fetchone()
+
+    if not resultado:
+
+        cursor.close()
+        conexao.close()
+
+        return {
+            "sucesso": False,
+            "mensagem": "Senha atual incorreta"
+        }
+
+    cursor.execute(
+        """
+        UPDATE usuarios
+        SET senha=%s
+        WHERE usuario=%s
+        """,
+        (dados.senha_nova, usuario)
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return {
+        "sucesso": True
+    }
+
+@app.post("/movimentacao")
+def salvar_movimentacao(token: str, dados: Movimentacao):
+
+    usuario = obter_usuario(token)
+
+    if not usuario:
+        return {"sucesso": False, "mensagem": "Token inválido"}
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO movimentacoes(usuario, descricao, valor, tipo)
+        VALUES (%s, %s, %s, %s)
+        """,
+        (usuario, dados.descricao, dados.valor, dados.tipo)
+    )
+
+    conexao.commit()
+
+    id_mov = cursor.lastrowid
+
+    cursor.close()
+    conexao.close()
+
+    return {
+        "sucesso": True,
+        "id": id_mov
+    }
+
+
+@app.get("/movimentacoes")
+def listar_movimentacoes(token: str):
+
+    usuario = obter_usuario(token)
+
+    if not usuario:
+        return []
+
+    conexao = conectar()
+    cursor = conexao.cursor(dictionary=True)
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM movimentacoes
+        WHERE usuario=%s
+        """,
+        (usuario,)
+    )
+
+    resultado = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return resultado
+
+
+@app.put("/movimentacao/{id}")
+def atualizar_movimentacao(id: int, token: str, dados: Movimentacao):
+
+    usuario = obter_usuario(token)
+
+    if not usuario:
+        return {"sucesso": False, "mensagem": "Token inválido"}
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        """
+        UPDATE movimentacoes
+        SET descricao=%s, valor=%s, tipo=%s
+        WHERE id=%s AND usuario=%s
+        """,
+        (dados.descricao, dados.valor, dados.tipo, id, usuario)
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return {"sucesso": True}
+
+
+@app.delete("/movimentacao/{id}")
+def deletar_movimentacao(id: int, token: str):
+
+    usuario = obter_usuario(token)
+
+    if not usuario:
+        return {"sucesso": False, "mensagem": "Token inválido"}
+
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        """
+        DELETE FROM movimentacoes
+        WHERE id=%s AND usuario=%s
+        """,
+        (id, usuario)
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return {"sucesso": True}

@@ -105,11 +105,6 @@ h1{
     font-weight:bold;
 }
 
-#saldo{
-
-    color:#7CFF9A;
-}
-
 /* SUBTITULO */
 
 h4{
@@ -397,4 +392,54 @@ p{
         font-size:20px;
     }
 
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: #0f172a;
+    transition: right 0.3s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.aberto{
+    right: 0;
+}
+
+.fecharSidebar{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.opcoesPerfil button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+}
+
+.sair{
+    margin-top: auto;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #dc2626;
+    color: white;
+    cursor: pointer;
 }

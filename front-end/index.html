@@ -6,15 +6,30 @@
     <link rel="stylesheet" href="stylehome.css">
 </head>
 <body>
-    <h1>LOGO PORQUINHO+</h1>
+    <h1><img src="../Imagens/logosaf.png" class="logo"></h1>
     <div class="saldoseparação">
     <span>Saldo Atual:</span>
     <span id="saldo">R$ 0,00</span>
     </div>
     <h4>Ganhos/Gastos</h4>
     <div id="listaganhogasto"></div>
+
     <div class="perfil">
-        <button id="botaoperfil">👤</button>
+        <button id="botaoperfil" onclick="abrirPerfil()">👤</button>
+    </div>
+    <div id="menuPerfil" class="sidebar">
+
+    <button class="fecharSidebar" onclick="fecharPerfil()">✖</button>
+
+    <h3>Perfil</h3>
+
+    <div class="opcoesPerfil">
+    <button onclick="abrirJanelaUsuario()">⚙ Alterar usuário</button>
+    <button onclick="abrirJanelaSenha()">🔒 Alterar senha</button>
+    </div>
+
+    <button class="sair" onclick="sair()">🚪 Sair</button>
+
     </div>
 <!--ganhos/gastos-->
     <button type="button" onclick = "ganhos()" id="botaoganhos">Ganhos</button>
@@ -56,6 +71,55 @@
         <button onclick="salvaredicaoP()" type="button">Salvar</button>
         <button onclick= "xedicaogasto()">Cancelar</button>
     </dialog>
+
+    <dialog id="janelaUsuario">
+    <h3>Alterar usuário</h3>
+    <input
+        id="novoUsuario"
+        type="text"
+        placeholder="Novo usuário"
+    >
+    <br><br>
+    <input
+        id="senhaAtualUsuario"
+        type="password"
+        placeholder="Senha atual"
+    >
+    <br><br>
+    <button onclick="alterarUsuario()">
+        Salvar
+    </button>
+    <button onclick="fecharJanelaUsuario()">
+        Cancelar
+    </button>
+</dialog>
+<dialog id="janelaSenha">
+    <h3>Alterar senha</h3>
+    <input
+        id="senhaAtual"
+        type="password"
+        placeholder="Senha atual"
+    >
+    <br><br>
+    <input
+        id="novaSenha"
+        type="password"
+        placeholder="Nova senha"
+    >
+    <br><br>
+    <input
+        id="confirmarSenha"
+        type="password"
+        placeholder="Confirmar nova senha"
+    >
+    <br><br>
+    <button onclick="alterarSenha()">
+        Salvar
+    </button>
+    <button onclick="fecharJanelaSenha()">
+        Cancelar
+    </button>
+</dialog>
 
 
     <script src="scripthome.js"></script>
