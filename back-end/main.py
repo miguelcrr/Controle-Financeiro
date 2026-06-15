@@ -22,9 +22,10 @@ def conectar():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="senha",
+        password="joao0708",
         database="porquinho"
     )
+
 
 def criar_token(usuario):
     payload = {

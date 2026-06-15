@@ -443,3 +443,15 @@ p{
     color: white;
     cursor: pointer;
 }
+
+.logo2{
+    display: block;
+
+    width: 500px;
+
+    height: auto;
+
+    margin: 0 auto -100px auto;
+
+    object-fit: contain;
+}
